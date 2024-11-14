@@ -12,16 +12,16 @@ merged_violent = pd.merge(liquor_data, violent_crime_data, on='CSA2010')
 merged_property = pd.merge(liquor_data, property_crime_data, on='CSA2010')
 merged_all = pd.merge(liquor_data, all_crime_data, on='CSA2010')
 
-# Calculate average violent and property crime rates for 2022 for neighborhoods with universities
+# Crime rate
 avg_violent_crime = merged_violent['viol21'].mean()
 avg_property_crime = merged_property['prop21'].mean()
 avg_all_crime = merged_all['crime21'].mean()
 
-# Prepare data for bar chart
+# Bar Chart
 crime_types = ['Violent Crime', 'Property Crime', 'All Crime']
 crime_rates = [avg_violent_crime, avg_property_crime, avg_all_crime]
 
-# Plot bar chart
+# Plots
 plt.figure(figsize=(10, 6))
 plt.bar(crime_types, crime_rates, color=['blue', 'orange', 'green'])
 plt.title('Average Crime Rates Near Liquor Outlets by Crime Type (2021)', fontsize=18)
