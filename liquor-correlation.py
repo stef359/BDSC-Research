@@ -3,28 +3,23 @@ import matplotlib.pyplot as plt
 
 # Data
 liquor_data = pd.read_csv(('Data/Liquor_Outlets_Density.csv'))
-violent_crime_data = pd.read_csv('Data/Violent_Crime.csv')
-property_crime_data = pd.read_csv('Data/Property_Crime.csv')
-all_crime_data = pd.read_csv('Data/All_Crime.csv')
+crime_data = pd.read_csv('Data/Part_1.csv')
 
-# Merge (CSA2010)
-merged_violent = pd.merge(liquor_data, violent_crime_data, on='CSA2010')
-merged_property = pd.merge(liquor_data, property_crime_data, on='CSA2010')
-merged_all = pd.merge(liquor_data, all_crime_data, on='CSA2010')
+# Adjust
+liquor_data['Neighborhood'] = liquor_data['Neighborhood'].str.upper()
 
-# Crime rate
-avg_violent_crime = merged_violent['viol21'].mean()
-avg_property_crime = merged_property['prop21'].mean()
-avg_all_crime = merged_all['crime21'].mean()
+# Merge data 
+merged_data = pd.merge(liquor_data, crime_data, on='Neighborhood', how="inner")
+
+# Group by Crime Description
+crime_counts = merged_data['Description'].value_counts()
 
 # Bar Chart
-crime_types = ['Violent Crime', 'Property Crime', 'All Crime']
-crime_rates = [avg_violent_crime, avg_property_crime, avg_all_crime]
-
-# Plots
-plt.figure(figsize=(10, 6))
-plt.bar(crime_types, crime_rates, color=['blue', 'orange', 'green'])
-plt.title('Average Crime Rates Near Liquor Outlets by Crime Type (2021)', fontsize=18)
+plt.figure(figsize=(12, 6))
+crime_counts.plot(kind='bar', color='skyblue')
+plt.title('Common Crime Near Liquor Stores', fontsize=18)
 plt.xlabel('Crime Type', fontsize=14)
-plt.ylabel('Average Crime Rate (Per 1,000)', fontsize=14)
+plt.ylabel('Crime Count', fontsize=14)
+plt.xticks(rotation=45)
+plt.tight_layout()
 plt.show()
