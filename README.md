@@ -20,14 +20,6 @@ Baltimore City Community College- West Side - Greater Mondawmin
 
 https://data.baltimorecity.gov/datasets/bniajfi::liquor-outlet-density-per-1000-residents/explore?layer=0&location=1.018309%2C-76.620524%2C0.00&showTable=true
 
-# Violent Crimes
-
-https://data.baltimorecity.gov/maps/ab03385abf3b4f50aec0b090caa8877a/about
-
-# Property Crime
-
-https://data.baltimorecity.gov/datasets/bniajfi::property-crime-rate-per-1000-residents-1/explore?layer=0&location=39.284664%2C-76.620524%2C10.79
-
 # Total Crime
 
-https://data.baltimorecity.gov/datasets/bniajfi::part-1-crime-rate-per-1000-residents-1/explore?layer=0
+https://data.baltimorecity.gov/datasets/e0992dddbbf64231976d5d57763ec4f5_0/explore?location=-6.360272%2C-18.715795%2C1.43
